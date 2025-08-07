@@ -1,0 +1,118 @@
+@import url("global.css");
+/* Main Container */
+.det-online-games-section {
+    padding: 2rem 0;
+}
+
+.det-content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* .det-section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+} */
+
+/* Detail Card Layout */
+.det-game-details-card {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.det-detail-card {
+    display: flex;
+    gap: 2rem;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.det-detail-card-img {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    height: auto;
+    overflow: hidden;
+}
+
+.det-detail-game-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.det-detail-card-content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Content Styling */
+.det-detail-game-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.det-price-container {
+    margin: 1rem 0;
+}
+
+.det-price {
+    color: #e63946;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.det-detail-game-description {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.det-detail-add-to-cart-btn {
+    padding: 1rem 2rem;
+    background: #4361ee;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-bottom: 1.5rem;
+    width: fit-content;
+}
+
+.det-detail-add-to-cart-btn:hover {
+    background: #3a56d4;
+}
+
+.det-detail-game-meta {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.det-detail-game-meta div {
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .det-detail-card {
+        flex-direction: column;
+    }
+    
+    .det-detail-card-img {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}

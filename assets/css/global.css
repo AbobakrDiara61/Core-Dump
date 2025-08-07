@@ -1,0 +1,459 @@
+/* Help Rendering The Website On all Browsers */
+@import url("normalize.css");
+/* Important To Use Font Awesome */
+@import url("all.min.css");
+
+/* Main Variables */
+@import url("variables.css");
+/* Auth Modals */
+@import url("auth-modal.css");
+/* Animations */
+@import url("animations.css");
+
+/* 
+    Table of Contents 
+    1.Global Styles
+    2.Header 
+        - Header container
+        - Logo styling
+        - Navigation bar    
+        - Search Box
+    3.Main Content Area
+    4. Sections
+    5. Buttons
+    6. Cards
+    7. Footer 
+        - Layout and structure
+        - Copyright text
+        - Social links
+
+*/
+/* ========= 1. Global Styles ========= */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    scroll-behavior: smooth;
+    font-family: "Cairo", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--secondary-BG);
+}
+a {
+    text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+  /* color: #1e1e1e; */
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-weight: 700;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+button {
+    cursor: pointer;
+}
+input {
+    border: none;
+    outline: none;
+}
+
+/* ========= 1. Header Styles ========= */
+
+/* ====== Header container ====== */
+.header-container {
+    background-color: var(--primary-dark);
+    /* background-color: var(--primary-BG); */
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.header {
+    height: var(--header-height);
+    width: var(--content-width);
+    /* background-color: var(--secondary-BG); */
+    /* background-color: var(--primary-BG); */
+    position: relative;
+    /* top: 20px; */
+    z-index: var(--z--max);
+    display: flex;
+    /* justify-content: space-around; */
+    justify-content: space-between;
+    align-items: center;
+}
+/* ================= Logo ================= */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+.header-title {
+    color: var(--primary-BG);
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin: 0 10px;
+    display: inline-block;
+}
+.logo-img-contianer {
+    /* margin: 0; */
+    display: inline-block;
+}
+/* ====== Navigation Bar ====== */
+.links {
+    display: flex;
+    align-items: center;
+}
+.nav ul li {
+    padding: calc(var(--maring-md) / 2) var(--padding-sm);
+    margin-right: calc(var(--maring-md) / 2);
+/*     border-radius: 10px;
+    transition: background-color var(--transition-xslow); */
+}
+.nav ul li a {
+    position: relative;
+    color: var(--primary-BG);
+}
+.nav ul li a::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: var(--primary-light);
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    transition: var(--transition-slow);
+}
+/* .nav ul li:hover {
+    background-color: var(--primary-BG);
+} */
+.nav ul li:hover a::after {
+    width: 100%;
+
+}
+/* ======== Current page Active ======== */
+.nav ul li.current-page a::after {
+    width: 100% ;
+
+}
+/* ============= Search Box ============= */
+.search-box {
+    height: 50px;
+    width: 60px;
+    border-radius: 120px;
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* background-color: #2f3640; */
+    background-color: var(--primary-BG);
+    transition: 0.8s;
+}
+.search-input {
+    width: 0px;
+    /* height: 50px; */
+    border-radius: 100px;
+    border: 0px ;
+    background-color: transparent;
+    line-height: 40px;
+    transition: 0.8s;
+    /* color: var(--text-inverse); */
+    color: var(--text-light);
+}
+.search-input::placeholder{
+    color: var(--text-light);
+}
+.serach-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-dark);
+    transition: 0.8s;
+}
+.search-box:hover  {
+    width: 260px;
+}
+.search-box:hover .search-input {
+    width: 200px;
+    padding-left: var(--padding-md);
+}
+
+.search-box:hover .serach-btn {
+    /* background-color: #2f3640; */
+    background-color: var(--primary-dark);
+}
+.search-box:hover .serach-btn i {
+    color: white;
+}
+
+/* ================= Main Content Area ================= */
+main {
+    flex-grow: 1; /* This will make the main content take up all available space */
+    /* margin-top: calc(var(--header-height) * 1.3); */
+    margin-top: calc(var(--header-height));
+    /* margin-top: calc(var(--maring-md) * 4); */
+}
+.section-animate {
+    opacity: 0;
+}
+/* .section-animate.animate-out {
+    animation: pulse 2s 1 linear forwards;
+} */
+.section-animate.animate-in {
+    animation: fadeInDown 1s 1 ease forwards;
+}
+/* ================= 4. Sections ================= */
+.sub-section {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: var(--maring-lg);    
+    padding-top: var(--padding-lg);
+    margin-bottom: var(--header-height);
+    /* background-color: var(--primary-BG); */
+}
+.content-container {
+    width: var(--content-width,1200px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-around; */
+}
+.section-title {
+    font-size: var(--header-font-size);
+    font-weight: 800;
+    color: var(--text-light);
+    text-align: center;
+    margin-bottom: var(--maring-lg);
+}
+/* ================= 5. Buttons and Links ================= */
+.game-btn, .game-link {
+    padding: calc(var(--padding-sm) * 2);
+    height: 50px;
+    border-radius: 25px;
+    color: var(--text-inverse);
+    background-color: var(--hover-1);
+    border: none;
+    /* min-width: 100px; */
+    font-weight: 600;
+    transition: all var(--transition-medium);
+    cursor: pointer;
+}
+.game-btn:hover, .game-link:hover {
+    background-color: var(--secondary-dark);
+}
+.game-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 65px;
+}
+
+.login-btn, .sign-up-btn {
+    min-width: 100px;
+    background: none;
+    border: 3px solid var(--hover-dark);
+    padding: calc(var(--padding-sm) * 1.5);
+    border-radius: var(--radius-sm);    
+    cursor: pointer;
+    transition: all var(--transition-slow);
+    /* outline: inherit; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-unit);
+}
+.login-btn {
+    color: var(--hover-dark);
+    background-color: var(--secondary-BG);
+}
+.sign-up-btn {
+    color: var(--text-inverse);
+    background-color: var(--hover-dark);
+}
+.login-btn:hover {
+    color: var(--text-inverse);
+    background-color: var(--hover-dark);
+    box-shadow: var(--shadow-btn-30);
+}
+.sign-up-btn:hover {
+    box-shadow: var(--shadow-btn-30);
+}
+/* ===== End Of Btns ===== */
+
+/* ================= 6. Cards ================= */
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-BG);
+    transition: transform var(--transition-xslow);
+    border-radius: 15px;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+.card-img {
+    width: 100%;
+    display: flex;
+    border-radius: 15px 15px 0 0;
+    /* border: 3px solid red; */
+    overflow: hidden;
+}
+.game-img {
+    max-width: 100%;
+    opacity: 0.95;
+    z-index: 4;
+    transition: transform calc(var(--transition-xslow) * 2.5), opacity var(--transition-xslow);
+}
+.card:hover .game-img {
+    transform: scale(1.2); 
+    opacity: 1;
+}
+/* .card-img:hover .game-img {
+    transform: scale(1.05);
+} */
+.card > span {
+    position: absolute;
+    top: 20px;
+    padding: var(--padding-sm);
+    border-radius: 10px;
+    z-index: 10;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-inverse);
+    /* background-color: var(--primary-BG); */
+}
+.card .price {
+    right: 20px;  
+}
+.card .rate {
+    left: 20px;
+}
+.card .card-caption p {
+
+    margin: 0;
+}
+.card .card-caption  {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding-sm);
+    left: -100px;
+}
+.genre {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #2f3640;
+}
+.game-card-name {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #1e1e1e;
+}
+.card-btns {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: var(--maring-md);
+}
+/* ================= Footer Style ================= */
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .social-links {
+        flex-wrap: wrap;
+    }
+}
+.site-footer {
+    background-color: var(--primary-dark);
+    /* color: var(--text-inverse); */
+    padding: 2rem 0;
+    border-top: 1px solid #333;
+    margin-top: auto; /* Makes it stick to bottom */
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 1.5rem;
+}
+
+.copyright {
+    font-size: 1rem;
+    color: var(--text-inverse);
+    margin: 0;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.social-item a {
+    display: flex;
+    align-items: center;
+    color: var(--text-inverse);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    gap: 0.5rem;
+}
+
+.social-item a:hover {
+    color: var(--primary-BG);
+    transform: translateY(-2px);
+}
+
+.social-icon {
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+}
+
+
+
+.fa-gitkraken {
+    font-size: 2rem;
+    color: var(--primary-BG);
+}
+.fa-star {
+    color: var(--sun); 
+}
+.social-buttons .fa-google {
+    color: red;
+}
+.social-buttons .fa-facebook-f {
+    color: var(--facebook);
+}
+.fa-circle-xmark {
+    color: white;
+}
+/* IW Items Icons */
+.fa-tags, 
+.fa-headset, 
+.fa-hand-holding-usd, 
+.fa-gamepad {
+    color: var(--primary-dark);
+}

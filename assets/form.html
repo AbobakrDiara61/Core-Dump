@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <!-- <link rel="stylesheet" href="css/general.css"> -->
+        <title>Document</title>
+    </head>
+    <body>
+        <section class="auth-container">
+            <div class="auth-modal" id="auth-login">
+                <button class="close"><i class="fa-solid fa-circle-xmark"></i></button>
+                <h3 class="auth-header">Login </h3>
+                <form action="">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pass">Password</label>
+                        <input type="password" name="pass" id="pass" required>
+                    </div>
+                    <div class="form-options">
+                        <input type="checkbox" name="rem" id="rem">
+                        <label for="rem">Remember Me</label>
+                        <a href="" class="forget-pass">Forgot Password?</a>
+                    </div>
+                    <button type="submit" name="auth-login-btn" id="auth-login-btn">Login</button>
+                    <!-- <button type="submit" name="login" id="login"></button> -->
+                </form>
+                <div class="social-buttons">
+                    <button class="btn-social google"><i class="fa-brands fa-google"></i></button>
+                    <button class="btn-social facebook"><i class="fa-brands fa-facebook-f"></i></button>
+                </div>
+            </div>
+            <div class="auth-modal" id="auth-sign-up">
+                
+                <h3 class="auth-header">Create Your Account</h3>
+                <form action="">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pass">Password</label>
+                        <input type="password" name="pass" id="pass" required>
+                    </div>
+                    <div class="form-options">
+                        <input type="checkbox" name="rem" id="rem">
+                        <label for="rem">Remember Me</label>
+                        <a href="" class="forget-pass">Forgot Password?</a>
+                    </div>
+                    <button type="submit" name="auth-sign-up-btn" id="auth-sign-up-btn">Sign Up</button>
+                    <!-- <button type="submit" name="login" id="login"></button> -->
+                </form>
+                <div class="social-buttons">
+                    <button class="btn-social google"><i class="fa-brands fa-google"></i></button>
+                    <button class="btn-social facebook"><i class="fa-brands fa-facebook-f"></i></button>
+                </div>
+            </div>
+        </section>
+        <style>
+            .close {
+                position: absolute;
+                top: 8%;
+                right: 10%;
+                background-color: transparent;
+                border: none;
+            }
+
+            body {
+                background-color: #163272e2;
+            }
+            .auth-modal {
+                width: 400px;
+                height: 520px;
+                border-radius: var(--radius-lg);
+                border: 2px solid rgba(255,255,255,0.13);
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                
+                box-shadow: 0 0 40px rgba(222, 220, 235, 0.6);
+                background-color: rgba(255,255,255,0.13);
+                /* backdrop-filter: blur(10px); */
+                /* z-index: 1001; */
+                /* opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease; */
+            }.auth-modal.active {
+                opacity: 1;
+                visibility: visible;
+            }
+            .auth-header {
+                color: var(--text-inverse);
+                font-weight: 800;
+            }
+            .auth-modal form * {
+                color: var(--text-inverse);
+            }
+            .auth-modal form {
+                width: 100%;
+                /* height: 50%; */
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                /* justify-content: center; */
+            }
+            .auth-modal form .form-group, .form-options {
+                /* position: relative; */
+                width: 75%;
+                display: flex;
+            }
+            .auth-modal form .form-group {
+                flex-direction: column;
+            }
+            .auth-modal form .form-options {
+                justify-content: space-evenly;
+                align-items: center;
+            }
+            .auth-modal form input {
+                height: 40px;
+                padding: 0 var(--padding-md);
+                border-radius: var(--radius-lg);
+                background-color: rgba(255,255,255,0.07);
+            }
+            .auth-modal form button {
+                width: 75%;
+                height: 40px;
+                /* padding: var(--spacing-unit); */
+                border-radius: var(--radius-lg);
+                border: none;
+                outline: none;
+                color: var(--primary-dark);
+                font-weight: 600;
+            }
+            .social-buttons {
+                width: 100%;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+            .social-buttons .btn-social {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                border: none;
+                outline: none;
+                /* color: #eaf0fb; */
+                background-color: rgba(255,255,255,0.27);
+            }
+            .social-buttons .btn-social:hover {
+                background-color: rgba(255,255,255,0.47);
+            }
+            ::placeholder{
+                color: #e5e5e5;
+            }
+            #auth-sign-up {
+                display: none;
+            }
+        </style>
+    </body>
+</html>

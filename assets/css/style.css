@@ -1,0 +1,354 @@
+@import url("global.css");
+/* 
+    Table of Contents 
+    Hero Section
+        - Perks Section
+    Online Games Section
+        - Buttons and Links
+        - Game Cards
+    Trending Games Section
+        - 3d Cards
+    Features Section
+
+*/
+
+/* =========================== Hero Section =========================== */
+.hero-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    padding-top: var(--padding-lg);
+    border-radius: 0 0 15% 15%;
+    background-color: var(--primary-BG);
+}
+.hero-section {
+    width: var(--content-width);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-around; */
+}
+.main-banner {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+}
+/* ============== Left Col ============== */
+.main-banner .hero-brief {
+    color: var(--text-light);
+}
+.main-banner .hero-brief .store-header {
+    font-size: 2rem;
+    font-weight: 800;
+    transform-origin: left top;
+    animation: hinge 5s ease 2 alternate forwards;
+}
+.main-banner .hero-brief .game-name {
+    font-size: 3rem;
+    font-weight: 900;
+}
+.main-banner .hero-brief .brief {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: var(--nunito);
+}
+/* .hero-brief .demo-btn {
+    Done IN global
+} */
+/* ============== Right Col ============== */
+.banner-card-layout {
+    position: relative;
+    width: 100%;
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    align-items: center;
+}
+.banner-card-layout h3 {
+    margin-top: 40px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+.img-banner {
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+}
+.img-banner:hover #banner-img {
+    transform: scale(1.2);
+}
+/* Banner Image */
+#banner-img {
+    max-width: 100%;
+    transition: calc(var(--transition-xslow) * 2.5);
+}
+.banner-card-layout span{
+    position: absolute;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+.banner-price {
+    top: 15px;
+    right: 15px;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+.banner-sale {
+    width: 80px;
+    height: 80px;
+    left: -20px;
+    bottom: calc((100% - 440px) );
+    background-color: var(--primary-light);
+
+    font-weight: 500;
+    font-size: 1.5rem;
+    animation: pulse 2s ease 0.5s infinite alternate;
+
+}
+.demo-btn {
+    background-color: var(--primary-light);
+    animation: pulse 5s ease 0.5s infinite alternate;
+}
+/* ===================== Game Perks ===================== */
+.flex-perks {
+    /* margin-top: 20px; */
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax( min(15rem, 100%) ,1fr));
+    gap: 1rem;
+}
+.perk {
+    margin-top: var(--header-height);
+    display: grid;
+    grid-template: 'icon' 'title' / auto;   
+    justify-items: center;
+    gap: 20px 0;
+    background-image: linear-gradient(to bottom left, #e0e4e5, #f2f6f9);
+    padding: calc(var(--padding-md) * 1.5);
+    box-shadow: 
+    inset -2px 2px hsl(0 0 100% / 1),rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    color: var(--primary-dark);
+    transition: all var(--transition-slow);
+}
+.perk:hover {
+    transform: scale(1.05) translateY(-15px) rotate(1deg);
+    /* background-image: linear-gradient(to bottom, #e0e4e5, white); */
+}
+.perk .icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-light);
+    grid-area: icon;
+}
+.perk .icon i {
+    color: white;
+    font-size: 2.4rem;
+}
+.perk .title {
+    grid-area: title;
+
+    font-family: var(--josefin);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+/* Hover Events */
+/* .perk:hover {
+    background-image: none;
+    box-shadow: none;
+    color: var(--primary-dark);
+    background-color: var(--primary-light);
+}
+.perk:hover .title {
+    color: var(--text-inverse);
+} */
+/* ======================= Online Section ======================= */
+.game-cards-grid {
+    display: flex;
+    /* grid-template-columns: repeat(auto-fit, 350px); */
+    justify-content: center;
+    align-items: center;
+    /* grid-template-columns: repeat(auto-fit, minmax( min(15rem, 100%) ,1fr)); */
+    gap: 2rem;
+}
+.online-games-section .card {
+    /* padding: var(); */
+    width: 350px;
+    height: 500px;
+}
+#memory-card > span{
+    /* color: black; */
+    border: 1px solid black;
+    background-color: var(--primary-dark);
+}
+#memory-card:hover .game-img {
+    transform: scale(1.05); 
+    opacity: 1;
+}
+/* ============= Main Styles of Section is in global.css ============= */
+/* ============= Trending Games Section ============= */
+.trending-games-cards {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+/* ============= 3D Cards ============= */
+.container-3d::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); */
+    /* z-index: 1; */
+    transition: all 0.8s;
+}
+.card-3d {
+    position: relative;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    
+    perspective: 800px;
+    perspective-origin: center center;
+}
+
+.img-wrapper-3d {
+    position: relative;
+    width: 300px;
+    height: 450px;
+    border-radius: 20px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: 0.8s;
+    
+}
+.img-wrapper-3d::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    z-index: 100;
+    transition: all 0.8s;
+    /* background: red; */
+    opacity: 0.3;
+}
+.img-wrapper-3d  .static-img {
+    max-width: 100%;
+    object-fit: cover;
+}
+.motion-img {
+    width: 250px;
+    opacity: 0;
+    max-width: 100%;
+    position: absolute;
+    left: calc(-(100% - 250%)/2);
+    bottom: 0;
+    transition: 0.8s;
+}
+.card-3d:hover .img-wrapper-3d {
+    transform: rotateX(20deg);
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.63);
+}
+.card-3d:hover .img-wrapper-3d::after {
+    opacity: 1;
+}
+.card-3d:hover .motion-img {
+    opacity: 1;
+    transform: translate3d(0, -20px, 50px);
+
+}
+.card-3d:hover .title {
+    transform: translate3d(0, -20px, 50px);
+
+}
+.card-3d .title {
+    position: absolute;
+    bottom: 30px;
+    color: white;
+    z-index: 10;
+    transition: 0.8s;
+}
+.card-3d:hover #horror-3d {
+    /* transform: translate3d(0, -180px, 50px); */
+}
+
+/* ===================== Features Section ===================== */
+.features-layout {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax( min(15rem, 100%) ,1fr));
+    gap: 1rem;
+    /* margin-bottom: var(--header-height); */
+}
+.IW-item {
+    --primary-300: #93b1d0;
+    --primary-400: #7c9fc5;
+    display: grid;
+    grid-template: 'icon title' 'brief brief' / auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--primary-400);
+    padding: calc(var(--padding-md) * 1.5);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-btn-30);
+
+    transition: transform var(--transition-slow);
+}
+.IW-item * {
+    color: var(--text-inverse);
+}
+.IW-item:hover {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom, #6366f1, #a855f7);
+    transform: scale(1.05) translateY(-15px) /* rotate(1deg) */;
+}
+.IW-item:hover .IW-icon-container {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom, #7f83f3, #b56af9); 
+}
+.IW-item:hover .IW-icon-container i {
+    color: white;
+}
+.IW-icon-container {
+    grid-area: icon;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--primary-300);
+}
+.iw-title {
+    grid-area: title;
+    margin: 0;
+    text-align: right;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: var(--nunito);
+}
+.iw-brief {
+    grid-area: brief;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-family: var(--josefin);
+}
