@@ -1,189 +1,66 @@
-// Define all games as an object
 const API = "https://mocki.io/v1/46aedb81-856a-4519-b47b-9c288a18d2ad";
-const gamesData = {
-  "Assassin's Creed Valhalla": {
-    "details": {
-      "rate": 4.6,
-      "price": "$59.99",
-      "salePrice": "$39.99",
-      "sale": true,
-      "genre": ["Action", "RPG", "Open World"],
-      "downloads": 19000000,
-      "releaseYear": 2020,
-      "developer": "Ubisoft Montreal",
-      "imgPath": "assets/img/game01.jpeg"
-    },
-    "brief": "Viking-themed installment in the Assassin's Creed series."
-  },
-  "Assassin's Creed Mirage": {
-    "details": {
-      "rate": 4.3,
-      "price": "$49.99",
-      "salePrice": "$34.99",
-      "sale": true,
-      "genre": ["Adventure", "Stealth", "Action"],
-      "downloads": 5000000,
-      "releaseYear": 2023,
-      "developer": "Ubisoft Bordeaux",
-      "imgPath": "assets/img/game05.jpg"
-    },
-    "brief": "Return to classic AC gameplay with a focus on stealth in 9th-century Baghdad."
-  },
-  "Need For Speed": {
-    "details": {
-      "rate": 4.7,
-      "price": "$59.99",
-      "salePrice": null,
-      "sale": false,
-      "genre": ["Racing", "Action", "Simulation"],
-      "downloads": 8000000,
-      "releaseYear": 2021,
-      "developer": "Criterion Games",
-      "imgPath": "assets/img/game04.jpg"
-    },
-    "brief": "High-octane street racing with customizable cars."
-  },
-  "Call of Duty: Modern Warfare": {
-    "details": {
-      "rate": 4.5,
-      "price": "$59.99",
-      "salePrice": "$44.99",
-      "sale": true,
-      "genre": ["Action", "Shooter", "Multiplayer"],
-      "downloads": 30000000,
-      "releaseYear": 2019,
-      "developer": "Infinity Ward",
-      "imgPath": "assets/img/game06.jpg"
-    },
-    "brief": "Reboot of the iconic Modern Warfare series with realistic combat."
-  },
-  "Call of Duty: Black Ops Cold War": {
-    "details": {
-      "rate": 4.2,
-      "price": "$59.99",
-      "salePrice": null,
-      "sale": false,
-      "genre": ["Action", "Shooter", "Multiplayer"],
-      "downloads": 25000000,
-      "releaseYear": 2020,
-      "developer": "Treyarch",
-      "imgPath": "assets/img/game08.jpg"
-    },
-    "brief": "Cold War-era shooter with campaign and multiplayer modes."
-  },
-  "Battlefield 2042": {
-    "details": {
-      "rate": 3.8,
-      "price": "$59.99",
-      "salePrice": "$29.99",
-      "sale": true,
-      "genre": ["Action", "Shooter", "Multiplayer"],
-      "downloads": 15000000,
-      "releaseYear": 2021,
-      "developer": "DICE",
-      "imgPath": "assets/img/game07.jpg"
-    },
-    "brief": "Futuristic large-scale warfare with 128-player battles."
-  },
-  "Resident Evil Village": {
-    "details": {
-      "rate": 4.7,
-      "price": "$59.99",
-      "salePrice": null,
-      "sale": false,
-      "genre": ["Adventure", "Horror", "Action"],
-      "downloads": 8000000,
-      "releaseYear": 2021,
-      "developer": "Capcom",
-      "imgPath": "assets/img/resident.jpg"
-    },
-    "brief": "First-person horror experience continuing Ethan Winters' story."
-  },
-  "The Legend of Zelda: Breath of the Wild": {
-    "details": {
-      "rate": 4.9,
-      "price": "$59.99",
-      "salePrice": null,
-      "sale": false,
-      "genre": ["Adventure", "Action", "Open World"],
-      "downloads": 25000000,
-      "releaseYear": 2017,
-      "developer": "Nintendo",
-      "imgPath": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbCzhtDsM5DanZ9vpg9D4jeWOuyZHZtfK16Q&s"
-    },
-    "brief": "Open-world adventure with Link exploring the vast kingdom of Hyrule."
-  },
-  "FIFA 23": {
-    "details": {
-      "rate": 4.4,
-      "price": "$69.99",
-      "salePrice": "$49.99",
-      "sale": true,
-      "genre": ["Sports", "Simulation", "Multiplayer"],
-      "downloads": 35000000,
-      "releaseYear": 2022,
-      "developer": "EA Sports",
-      "imgPath": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2ZVTn2_oEArvroUM3rxvueM0exQQA0CcTC17LLpSHvsK-cd6veiW-keRP6RDYclO3f9M&usqp=CAU"
-    },
-    "brief": "Latest soccer simulation with updated teams and mechanics."
-  }
-};
-
-// Convert the object to a Map
-const gameInfoMap = new Map(Object.entries(gamesData));
+let games = null;
+// Filter functionality
+const filterButtons = document.querySelectorAll('.controls span');
 
 // Get the cards container
 const cardsContainer = document.querySelector('.flex-cards');
 
+async function renderGames(api) {
+    let response = await fetch(api);
+    let data = await response.json();
+    games = [...data];
+    data.forEach(game => {
+      const card = createGameCard(game);
+      cardsContainer.appendChild(card);
+    })
+    document.querySelectorAll(".cart-btn")
+    .forEach(btn => btn.addEventListener("click", (e) => addToCart(e)));
+}
+renderGames(API);
+
+function addToCart(e) {
+  console.log(e);
+}
 // Function to create a game card
-function createGameCard(gameName, gameData) {
-  const card = document.createElement('div');
-  card.classList.add('grid-game-card');
+function createGameCard(game) {
+  const {details, gameName} = game;
+  const card = document.createElement('article');
+  card.classList.add('shop-card');
   
   card.innerHTML = `
-    <article class="shop-card">
       <div class="img-wrapper">
-        <img src="${gameData.details.imgPath}" alt="${gameName}">
+        <img src="${details.imgPath}" alt="${gameName}">
       </div>
       <h3>${gameName}</h3>
 
       <div class="row">
         <p class="price">
-          ${gameData.details.sale ? gameData.details.salePrice : gameData.details.price} 
-          ${gameData.details.sale ? `<span>${gameData.details.price}</span>` : ""}
+          ${details.sale ? details.salePrice : details.price} 
+          ${details.sale ? `<span>${details.price}</span>` : ""}
         </p>
-        <div class="rate"><i class="fa-solid fa-star"></i> ${gameData.details.rate}</div>
+        <div class="rate"><i class="fa-solid fa-star"></i> ${details.rate}</div>
       </div>
 
       <div class="row">
         <ul class="genre">
         
-          ${gameData.details.genre.map(gen => `<li>${gen}</li>`).join("")}
+          ${details.genre.map(gen => `<li>${gen}</li>`).join("")}
         </ul>
-        <p class="downloads"><i class="fa-solid fa-download"></i> ${gameData.details.downloads}</p>
+        <p class="downloads"><i class="fa-solid fa-download"></i> ${details.downloads}</p>
       </div>
 
-      <button class="cart"><i class="fa-solid fa-cart-shopping"></i></button>
-    </article>
+      <button class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
   `;
 
   return card;
 }
 
-// Function to render all games
-function renderGames(games) {
-  cardsContainer.innerHTML = '';
-  games.forEach((gameData, gameName) => {
-    const card = createGameCard(gameName, gameData);
-    cardsContainer.appendChild(card);
-  });
+function displayGames(games) {
+  let gameHtml = "";
+  games.forEach(game => gameHtml += createGameCard(game).outerHTML);
+  cardsContainer.innerHTML = gameHtml;
 }
-
-// Initial render of all games
-renderGames(gameInfoMap);
-
-// Filter functionality
-const filterButtons = document.querySelectorAll('.controls span');
 
 filterButtons.forEach(btn => {
   btn.addEventListener('click', (e) => {
@@ -192,25 +69,18 @@ filterButtons.forEach(btn => {
     e.target.classList.add('active');
     
     const filter = e.target.dataset.filter;
-    
+    if(games === null) {
+      renderGames(API);
+      return;
+    }
+
     if (filter === 'all') {
-      renderGames(gameInfoMap);
+      displayGames(games);
       return;
     }
     
     // Filter games by genre
-    const filteredGames = new Map(
-      [...gameInfoMap].filter(([name, data]) => 
-        data.details.genre.toLowerCase().includes(filter)
-      )
-    );
-    
-    renderGames(filteredGames);
+    filteredGames = games.filter(game => game.details.genre.some(genre => genre.toLowerCase().includes(filter)))
+    displayGames(filteredGames);
   });
 });
-
-// Font Awesome icons (if not already loaded in your project)
-document.head.insertAdjacentHTML(
-  'beforeend',
-  '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">'
-);
