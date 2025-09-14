@@ -1,83 +1,114 @@
+@import url("global.css");
 .flex-cards {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%) ,23rem));
     flex-wrap: wrap;
     gap: 2rem;
 }
 
-.grid-game-card {
-    display: grid;
-    grid-template: 'img img' 'title rate' 'genre price' / auto 1fr;
-    gap: 1rem;
-    width: 280px;
-    background: #1a1a1a;
-    border-radius: 10px;
-    padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.grid-game-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.flex-cards .img-wrapper {
-    grid-area: img;
-    border-radius: 8px;
+.shop-card {
+    position: relative;
+    width: 350px;
+    background-color: #1a1a1a;
     overflow: hidden;
-    height: 160px;
-}
-
-.img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.grid-game-card:hover .img-wrapper img {
-    transform: scale(1.05);
-}
-
-.flex-cards .game-name {
-    grid-area: title;
-    margin: 0;
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 600;
-    color: #fff;
-    font-size: 1.2rem;
-}
-
-.flex-cards .rate {
-    grid-area: rate;
-    text-align: right;
-    color: #ffc107;
-    font-weight: bold;
-}
-
-.flex-cards .genre {
-    grid-area: genre;
-    background: #333;
-    color: #aaa;
-    padding: 0.3rem 0.6rem;
+    padding: 20px;
     border-radius: 20px;
-    font-size: 0.8rem;
-    width: fit-content;
-}
-
-.flex-cards .price {
-    grid-area: price;
-    text-align: right;
-    color: #4CAF50;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-.flex-cards i {
-    margin-right: 5px;
+    /* cursor: pointer; */
+    .img-wrapper {
+        height: 250px;
+        overflow: hidden;
+        border-radius: inherit;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            
+            transition: transform var(--transition-xslow);
+            .img-wrapper:hover & {
+                transform: scale(1.05);
+            }
+        }
+    }
+    h3 {
+        color: white;
+        font-size: var(--font-xl);
+        font-weight: 700;
+        margin: 15px 0;
+    }
+    .row {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .price {
+        color: #4CAF50;
+        font-size: var(--font-md);
+        font-weight: 700;
+        span {
+            /* display: inline-block; */
+            /* margin-left: 0px; */
+            font-size: var(--font-xs);
+            text-decoration: line-through;
+            font-style: italic;                  
+        }
+    }
+    .rate {
+        color: #ffc107;
+        i {
+            margin-right: 5px;
+        }
+    }
+    .downloads {
+        color: white;
+        display: flex;
+        align-items: flex-end;
+        font-size: var(--font-sm);
+        i {
+            font-size: var(--font-lg);
+            margin: 0 5px;
+        }
+    }
+    .genre {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--margin-sm);
+        align-items: center;
+        margin-top: 10px;
+        li {
+            background-color: #333;
+            color: #777;
+            font-size: calc(var(--font-sm) * 0.9);
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: var(--padding-sm);
+            border-radius: 20px;
+        }
+    }
+    
+    .cart {
+        position: absolute;
+        right: 30px;
+        top: 25px;
+        color: #fff;
+        /* background: linear-gradient(120deg,  var(--secondary-dark), var(--primary-dark)) ; */
+        background: #1a1a1a;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: var(--font-lg);
+        cursor: pointer;
+        transition: background-color var(--cubic-bezier-smooth);
+    }
+    .cart:hover {
+        background-color: #333;
+    }
 }
 
 /* Controls styling */
@@ -95,7 +126,7 @@
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 0.9rem;
+    font-size: var(--font-sm);
 }
 
 .controls span:hover {

@@ -47,7 +47,7 @@ body {
 a {
     text-decoration: none;
 }
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p, div {
   /* color: #1e1e1e; */
   margin-top: 0px;
   margin-bottom: 0px;
@@ -60,6 +60,8 @@ ul {
 }
 button {
     cursor: pointer;
+    outline: none;
+    border: none;
 }
 input {
     border: none;

@@ -24,10 +24,12 @@
     --shadow-card-94: rgba(14, 63, 126, 0.04) 0px 0px 0px 1px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.04) 0px 6px 6px -3px, rgba(14, 63, 126, 0.04) 0px 12px 12px -6px, rgba(14, 63, 126, 0.04) 0px 24px 24px -12px;
     --shadow-card-cp: inset -2px 2px /* hsl(0 0 100% / 1) */ var(--primary-BG),
                       -20px 20px 40px hsl(0 0 0 / .25) ;
+
     --spacing-unit: 10px;
     --margin-sm: calc(0.5 * var(--spacing-unit));
     --maring-md: calc(2 * var(--spacing-unit));
     --maring-lg: calc(4 * var(--spacing-unit));
+
     --padding-sm: calc(0.5 * var(--spacing-unit));
     --padding-md: calc(2 * var(--spacing-unit));
     --padding-lg: calc(4 * var(--spacing-unit));
@@ -35,11 +37,19 @@
     --radius-sm: calc(0.5 * var(--spacing-unit));
     --radius-md: calc(2 * var(--spacing-unit));
     --radius-lg: calc(4 * var(--spacing-unit));
+    /* Fonts */
+    --font-xs: 0.75rem;
+    --font-sm: 0.9rem;
+    --font-md: 1.1rem;
+    --font-lg: 1.35rem;
+    --font-xl: 1.5rem;
     /* transition */
     --transition-xslow: 0.5s;
     --transition-slow: 0.3s;
     --transition-medium: 0.2s;
-    
+    --cubic-bezier-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+
     --z--max: 1000;
     --header-height: 5rem;
     --content-width: 1200px;
