@@ -1,0 +1,72 @@
+{
+  "shopGames": [
+    {
+      "gameName": "Assassin's Creed Valhalla",
+      "details": {
+        "rate": 4.6,
+        "price": "$59.99",
+        "salePrice": "$39.99",
+        "sale": true,
+        "genre": ["Action", "RPG", "Open World"],
+        "downloads": 19000000,
+        "releaseYear": 2020,
+        "developer": "Ubisoft Montreal",
+        "imgPath": "assets/img/game01.jpeg"
+      },
+      "brief": "Viking-themed installment in the Assassin's Creed series."
+    },
+    {
+      "gameName": "FIFA 23",
+      "details": {
+        "rate": 4.4,
+        "price": "$69.99",
+        "salePrice": "$49.99",
+        "sale": true,
+        "genre": ["Sports", "Simulation", "Multiplayer"],
+        "downloads": 35000000,
+        "releaseYear": 2022,
+        "developer": "EA Sports",
+        "imgPath": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2ZVTn2_oEArvroUM3rxvueM0exQQA0CcTC17LLpSHvsK-cd6veiW-keRP6RDYclO3f9M&usqp=CAU"
+      },
+      "brief": "Latest soccer simulation with updated teams and mechanics."
+    }
+  ],
+  
+  "onlineGames": [
+    {
+      "gameName": "Hangman",
+      "details": {
+        "price": "Free",
+        "imgPath": "assets/img/game01.jpeg"
+      },
+      "brief": "Classic word guessing game where you save the stick figure from hanging."
+    }
+  ],
+  
+  "trendingGames": [
+    {
+      "gameName": "Cyberpunk 2077",
+      "details": {
+        "price": "$49.99",
+        "salePrice": "$29.99",
+        "imgPath": {
+          "motion": "/assets/img/motion00.jpg",
+          "static": "/assets/img/static00.jpg"
+        }
+      },
+      "brief": "Open-world RPG set in a dystopian future with enhanced gameplay."
+    },
+    {
+      "gameName": "Elden Ring",
+      "details": {
+        "price": "$59.99",
+        "salePrice": "$39.99",
+        "imgPath": {
+          "motion": "/assets/img/motion01.jpg",
+          "static": "/assets/img/static01.jpg"
+        }
+      },
+      "brief": "Critically acclaimed fantasy action RPG with vast open world."
+    }
+  ]
+}

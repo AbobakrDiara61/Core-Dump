@@ -1,9 +1,7 @@
 @import url("global.css");
-.flex-cards {
-    width: 100%;
+.shop-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%) ,23rem));
-    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%) ,22rem));
     gap: 2rem;
 }
 
@@ -142,7 +140,7 @@
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
-    .flex-cards {
+    .shop-cards {
         justify-content: center;
     }
 }

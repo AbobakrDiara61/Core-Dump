@@ -1,18 +1,20 @@
 
 // Get the header container element
-const headerContainer = document.querySelector('.header-container');
+const headerContainer = document.querySelector('body > header');
 // Create the footer HTML as a string
 const headerContent = `
-    <header class="header" id="header">
+    <div class="container"> 
         <!-- Left Section -->
-            <div class="logo-container">
+        <div class="logo-container">
             <a href="/" class="home-link">
                 <div class="logo-img-contianer" id="logo-img-contianer"><i class="fa-brands fa-gitkraken"></i></div>
                 <h1 class="header-title">Gaming Website</h1>
             </a>
-            </div>
+        </div>
+        <button class="menu-btn toggle-btn"><i class="fa-solid fa-bars"></i></button>
         <!-- Center Section -->
-            <nav class="nav" aria-label="Main navigation" id="main-nav">
+        <nav aria-label="Main navigation" id="main-nav">
+            <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
             <ul class="links">
                 <li>
                     <a href="/" class="home-link"><!-- <i class="fa-solid fa-house"></i> -->Home</a>
@@ -30,20 +32,30 @@ const headerContent = `
                     <a href="contact.html">Contact Us</a>
                 </li>
             </ul>
-            </nav>
             <!-- Right Section -->
             <form id="search" action="#">
-            <div class="search-box">
-                <input class="search-input"type="text" name="" placeholder="Search">
-                <button class="serach-btn"><i class="fa-brands fa-searchengin"></i></button>
+                <div class="search-box">
+                    <input class="search-input"type="text" name="" placeholder="Search">
+                    <button class="serach-btn"><i class="fa-brands fa-searchengin"></i></button>
+                </div>
+            </form>
+            <div class="btns-container">
+                <button class="main-btn" id="login-btn"><i class="fa-solid fa-right-to-bracket"></i><span>Login</span></button>
+                <button class="secondary-btn" id="sign-up-btn"><i class="fa-solid fa-user-plus"></i><span>Sign Up</span></button>
             </div>
-        </form>
-        <button class="login-btn btns" id="login-btn"><i class="fa-solid fa-right-to-bracket"></i>Login</button>
-        <button class="sign-up-btn btns" id="sign-up-btn"><i class="fa-solid fa-user-plus"></i>Sign Up</button>
-    </header>
+        </nav>
+    </div>
 `;
 // Append the header content to the header container
+// Mobil Menu Behavior
 headerContainer.innerHTML = headerContent;
+const nav = document.querySelector('#main-nav');
+const menuBtns = document.querySelector('.menu-btn');
+menuBtns.addEventListener('click', () => nav.classList.add('active'));
+
+const closingBtns = document.querySelector('.close-btn');
+closingBtns.addEventListener('click', () => nav.classList.remove('active'));
+
 // Smooth home navigation for both logo and home link
 document.querySelectorAll('.home-link').forEach(link => {
     link.addEventListener('click', function(e) {
@@ -91,7 +103,7 @@ const footerHTML = `
 </div>
 `;
 // Get the footer element and append the HTML
-document.querySelector('footer.site-footer').innerHTML = footerHTML;
+// document.querySelector('footer.site-footer').innerHTML = footerHTML;
 
 const authModal = `
         <div class="auth-modal" id="auth-login">
@@ -160,27 +172,17 @@ document.addEventListener('DOMContentLoaded', function() {
 const sections = document.querySelectorAll('.section-animate');
 let lastScrollPosition = window.scrollY;
 
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-        const currentScroll = window.scrollY;
-        const isScrollingDown = currentScroll > lastScrollPosition;
-        lastScrollPosition = currentScroll;
-        
-        if (entry.isIntersecting) {
-            // Scrolling down into view
-            entry.target.classList.remove('animate-out');
-            entry.target.classList.add('animate-in');
-        } else {
-            // Scrolling up out of view
-            if (!isScrollingDown && entry.boundingClientRect.top < 0) {
-                entry.target.classList.remove('animate-in');
-                entry.target.classList.add('animate-out');
-            }
+        // Only Once
+        entry.target.classList.toggle("animate-in", entry.isIntersecting);
+        if(entry.isIntersecting) {
+            observer.unobserve(entry.target);
         }
     });
 }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    threshold: 0.3,
+    rootMargin: '-50px'
 });
 
 sections.forEach(section => {
