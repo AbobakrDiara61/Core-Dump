@@ -187,3 +187,90 @@ sections.forEach(section => {
     observer.observe(section);
 });
 });
+
+// -------------- GameCard Component (Reusable) --------------
+/**
+ * Creates a game card DOM element based on provided props.
+ * @param {Object} props
+ * @param {string} props.title - Game title
+ * @param {string} props.image - Image src URL
+ * @param {string|number} props.price - Price (e.g., '$19.99')
+ * @param {function} [props.onClick] - Click handler for the Play button
+ * @param {string} [props.genre] - (Optional) Genre for badge
+ * @param {string[]} [props.platforms] - (Optional) Array of platform names
+ * @param {string|number} [props.rating] - (Optional) Game rating
+ * @param {string} [props.description] - (Optional) Short description
+ * @returns {HTMLElement}
+ */
+function createGameCard(props) {
+    const {
+        title,
+        image,
+        price,
+        onClick,
+        genre,
+        platforms = [],
+        rating,
+        description
+    } = props;
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+        <div class="card-header">
+            <img class="game-img" src="${image || ''}" alt="${title || ''} Game Cover">
+            ${price ? `<div class="price-tag">${price}</div>` : ''}
+            ${rating ? `<div class="rating"><i class='fa fa-star'></i> ${rating}</div>` : ''}
+        </div>
+        <div class="card-content">
+            ${genre ? `<span class="genre">${genre}</span>` : ''}
+            <div class="game-title">${title || ''}</div>
+            ${description ? `<div class="game-description">${description}</div>` : ''}
+            ${platforms.length ? `<div class="platform-tags">${platforms.map(p => `<span class="platform">${p}</span>`).join('')}</div>` : ''}
+        </div>
+        <div class="card-footer">
+            <button class="play-btn"><i class="fa-solid fa-play"></i> Play</button>
+            <button class="library-btn"><i class="fa-solid fa-plus"></i> Add to Library</button>
+        </div>
+    `;
+    card.querySelector('.play-btn').addEventListener('click', function (e) {
+        e.preventDefault();
+        if (typeof onClick === 'function') onClick(e);
+    });
+    return card;
+}
+/**
+ * Injects a GameCard into the specified container selector.
+ * @param {string} selector - DOM selector where to inject
+ * @param {Object} cardProps - Props for the GameCard (see createGameCard)
+ */
+function injectGameCard(selector, cardProps) {
+    // Prevent injection in any cart-related page or container
+    const prohibited = /cart/i;
+    if (prohibited.test(window.location.pathname) || (selector && prohibited.test(selector))) return;
+    const container = document.querySelector(selector);
+    if (!container) return;
+    const card = createGameCard(cardProps);
+    container.appendChild(card);
+}
+// Example usage for developers:
+// injectGameCard(".my-cards", { title: "Halo Infinite", image: "assets/img/game01.jpeg", price: "$59.99", onClick: () => alert('Play Halo Infinite!'), genre: "Shooter", platforms: ["PC", "Xbox"], rating: 4.7, description: "The next chapter in the epic franchise." });
+document.addEventListener("DOMContentLoaded", function() {
+    // Online Games
+    injectGameCard("#inject-online", {
+        title: "Call Of Duty",
+        image: "assets/img/memory-game.jpg",
+        price: "$60",
+        genre: "Action",
+        rating: 4.5,
+        onClick: function() { window.location.href = "assets/games/memory_game/index.html"; },
+        description: "Fast-paced FPS classic with a gripping campaign.",
+        platforms: ["PC", "Xbox", "PS"]
+    });
+    // Most Played - add several demo cards
+    const mostPlayed = [
+        { title: "Call Of Duty", image: "assets/img/game08.jpg", price: "$60", genre: "Action", rating: 4.5, onClick: function() { window.location.href = "assets/games/memory_game/index.html"; }, description: "Fast-paced FPS classic.", platforms: ["PC", "Xbox"] },
+        { title: "Minecraft", image: "assets/img/game07.jpg", price: "$30", genre: "Sandbox", rating: 4.8, onClick: function() { window.location.href = "#"; }, description: "Block-building creative adventure.", platforms: ["PC", "Switch"] },
+        { title: "FIFA 24", image: "assets/img/game02.jpg", price: "$70", genre: "Sports", rating: 4.3, onClick: function() { window.location.href = "#"; }, description: "Next-gen football simulation.", platforms: ["PC", "PlayStation"] }
+    ];
+    mostPlayed.forEach(cfg => injectGameCard("#inject-most-played", cfg));
+});
