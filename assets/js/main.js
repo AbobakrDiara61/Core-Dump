@@ -71,10 +71,69 @@ document.querySelectorAll('.home-link').forEach(link => {
     });
 });
 const footerHTML = `
-<div class="footer-container">
-    <!-- Copyright Text -->
-    <!-- <p class="copyright">© 2025 Gaming Website. All rights reserved. | Built by gamers, for gamers - the ultimate showcase platform.</p>
-        -->
+<div class="container">
+    <div class="footer-info">
+        <div class="footer-about col">
+            <h5 class="title">About Us</h5>
+            <p>
+                Welcome to [Your Website Name], your ultimate destination for all things gaming! 
+                We are passionate gamers and tech enthusiasts dedicated to bringing 
+                you the best gaming PCs, consoles, accessories, and in-game items, 
+                all at unbeatable prices. Beyond shopping, dive into
+            </p>
+        </div>
+        <div class="col" id="footer-categories">
+            <h5 class="title">Categories</h5>
+            <ul>
+                <li>
+                    <a href="#">Hot deals</a>
+                </li>
+                <li>
+                    <a href="#">Gaming PCs</a>
+                </li>
+                <li>
+                    <a href="#">Online Games</a>
+                </li>
+                <li>
+                    <a href="#">Trending Games</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col" id="footer-information">
+            <h5 class="title">Information</h5>
+            <ul>
+                <li>
+                    <a href="#">About Us</a>
+                </li>
+                <li>
+                    <a href="#">Contact Us</a> 
+                </li>
+                <li>
+                    <a href="#">Contact Support</a>
+                </li>
+                <li>
+                    <a href="#">Contact Developers</a> 
+                </li>
+            </ul>
+        </div>
+        <div class="col" id="footer-service">
+            <h5 class="title">Service</h5>
+            <ul>
+                <li>
+                    <a href="#">View Cart</a>
+                </li>
+                <li>
+                    <a href="#">Wishlist</a>
+                </li>
+                <li>
+                    <a href="#">Library</a>
+                </li>
+                <li>
+                    <a href="#">Product Details</a>
+                </li>
+            </ul>
+        </div>
+    </div>
     <!-- Social Links -->
     <ul class="social-links">
         <li class="social-item">
@@ -97,13 +156,18 @@ const footerHTML = `
                 <i class="fas fa-envelope social-icon"></i>
             </a>
         </li>
+        <li class="social-item">
+            <a href="https://github.com/AbobakrDiara61/Core-Dump" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github social-icon"></i>
+            </a>
+        </li>
     </ul>
     <!-- Copyright Text -->
     <p class="copyright"><i class="fa-solid fa-copyright"></i> 2025 Gaming Website. All rights reserved. | Built by gamers, for gamers - the ultimate showcase platform.</p>
 </div>
 `;
 // Get the footer element and append the HTML
-// document.querySelector('footer.site-footer').innerHTML = footerHTML;
+document.querySelector('footer.site-footer').innerHTML = footerHTML;
 
 const authModal = `
         <div class="auth-modal" id="auth-login">
@@ -188,4 +252,44 @@ const observer = new IntersectionObserver(entries => {
 sections.forEach(section => {
     observer.observe(section);
 });
+});
+
+// --- GAME CARD COMPONENTS (moved to gameCard.js) ---
+import { injectGameCard } from './gameCard.js';
+
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('data/games.json')
+        .then(res => res.json())
+        .then(data => {
+            // Online Games: Use data.onlineGames
+            if (Array.isArray(data.onlineGames)) {
+                data.onlineGames.forEach(g => {
+                    injectGameCard("#inject-online", {
+                        title: g.gameName,
+                        image: (g.details.image || g.details.imgPath),
+                        price: g.details.price,
+                        genre: Array.isArray(g.details.genre) ? g.details.genre[0] : g.details.genre,
+                        rating: g.details.rating || g.details.rate,
+                        onClick: g.details.onClick ? (e) => { eval(g.details.onClick); } : undefined,
+                        description: g.brief,
+                        platforms: g.details.platforms || []
+                    });
+                });
+            }
+            // Most Played Games: Now use mostPlayedGames
+            if (Array.isArray(data.mostPlayedGames)) {
+                data.mostPlayedGames.forEach(g => {
+                    injectGameCard("#inject-most-played", {
+                        title: g.gameName,
+                        image: (g.details.image || g.details.imgPath),
+                        price: g.details.price,
+                        genre: Array.isArray(g.details.genre) ? g.details.genre[0] : g.details.genre,
+                        rating: g.details.rating || g.details.rate,
+                        onClick: g.details.onClick ? (e) => { eval(g.details.onClick); } : undefined,
+                        description: g.brief,
+                        platforms: g.details.platforms || []
+                    });
+                });
+            }
+        });
 });
