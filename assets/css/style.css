@@ -13,33 +13,29 @@
 */
 
 /* =========================== Hero Section =========================== */
-.hero-container {
-    width: 100%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;    
+.hero-section {
     padding-top: var(--padding-lg);
     border-radius: 0 0 15% 15%;
     background-color: var(--primary-BG);
 }
-.hero-section {
-    width: var(--content-width);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: space-around; */
-}
 .main-banner {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2,auto);
+    display: flex;
+    justify-content: space-between;
+    row-gap: 100px;
+    flex-wrap: wrap;
 }
-/* ============== Left Col ============== */
+@media (min-width: 992px) {
+    .main-banner {
+        flex-wrap: nowrap;
+    }
+}
+/* ============== Right Col ============== */
 .main-banner .hero-brief {
     color: var(--text-light);
 }
 .main-banner .hero-brief .store-header {
+    margin-bottom: var(--margin-sm);
     font-size: 2rem;
     font-weight: 800;
     transform-origin: left top;
@@ -50,6 +46,7 @@
     font-weight: 900;
 }
 .main-banner .hero-brief .brief {
+    margin: var(--padding-md) 0;
     font-size: 1.5rem;
     font-weight: 600;
     font-family: var(--nunito);
@@ -57,9 +54,9 @@
 /* .hero-brief .demo-btn {
     Done IN global
 } */
-/* ============== Right Col ============== */
+/* ============== Left Col ============== */
 .banner-card-layout {
-    position: relative;
+    flex-grow: 1;
     width: 100%;
     color: var(--text-light);
     display: flex;
@@ -72,21 +69,25 @@
     font-size: 2rem;
     font-weight: 700;
 }
-.img-banner {
-    width: 400px;
-    height: 400px;
-    overflow: hidden;
-    border-radius: var(--radius-md);
+.banner-card {
+    position: relative;
+    width: min(100%, 400px);
+    
+    .img-banner {
+        overflow: hidden;
+        border-radius: var(--radius-md);
+    }
+    .img-banner:hover #banner-img {
+        transform: scale(1.2);
+    }
+    /* Banner Image */
+    #banner-img {
+        max-width: 100%;
+        transition: calc(var(--transition-xslow) * 2.5);
+    }
 }
-.img-banner:hover #banner-img {
-    transform: scale(1.2);
-}
-/* Banner Image */
-#banner-img {
-    max-width: 100%;
-    transition: calc(var(--transition-xslow) * 2.5);
-}
-.banner-card-layout span{
+
+.banner-card-layout span {
     position: absolute;
     color: white;
     border-radius: 50%;
@@ -105,7 +106,7 @@
     width: 80px;
     height: 80px;
     left: -20px;
-    bottom: calc((100% - 440px) );
+    top: calc(100% - 40px);
     background-color: var(--primary-light);
 
     font-weight: 500;
@@ -175,15 +176,12 @@
 } */
 /* ======================= Online Section ======================= */
 .game-cards-grid {
-    display: flex;
-    /* grid-template-columns: repeat(auto-fit, 350px); */
-    justify-content: center;
-    align-items: center;
-    /* grid-template-columns: repeat(auto-fit, minmax( min(15rem, 100%) ,1fr)); */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(10rem, 100%) , 1fr));
     gap: 2rem;
 }
 .online-games-section .card {
-    /* padding: var(); */
+    justify-self: center;
     width: 350px;
     height: 500px;
 }
@@ -201,9 +199,16 @@
 .trending-games-cards {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
+    gap: 15px;
     cursor: pointer;
+}
+@media (min-width: 768px) {
+    .trending-games-cards {
+        justify-content: space-between;
+    }
 }
 /* ============= 3D Cards ============= */
 .container-3d::after {
@@ -217,7 +222,7 @@
 }
 .card-3d {
     position: relative;
-    width: 300px;
+    width: min(100%, 350px);
     display: flex;
     justify-content: center;
     
@@ -227,7 +232,7 @@
 
 .img-wrapper-3d {
     position: relative;
-    width: 300px;
+    width: min(100%, 350px);
     height: 450px;
     border-radius: 20px;
     overflow: hidden;
@@ -235,6 +240,13 @@
     transition: 0.8s;
     
 }
+
+@media (min-width: 768px) {
+    :is(.img-wrapper-3d, .card-3d ) {
+        width: min(100%, 280px);
+    }
+}
+
 .img-wrapper-3d::after {
     content: '';
     position: absolute;
@@ -249,6 +261,8 @@
     opacity: 0.3;
 }
 .img-wrapper-3d  .static-img {
+    width: 100%;
+    height: 100%;
     max-width: 100%;
     object-fit: cover;
 }

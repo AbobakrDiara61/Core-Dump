@@ -4,7 +4,7 @@ let games = null;
 const filterButtons = document.querySelectorAll('.controls span');
 
 // Get the cards container
-const cardsContainer = document.querySelector('.flex-cards');
+const cardsContainer = document.querySelector('.shop-cards');
 
 async function renderGames(api) {
     let response = await fetch(api);

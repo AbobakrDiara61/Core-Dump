@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="icon" type="image/x-icon" href="assets/store.ico" >
     <!-- Main Styling File -->
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -17,12 +17,11 @@
     <title>Core Dumb</title>
 </head>
 <body>
-    <div class="header-container">
-        <!-- Injected By Js -->
-    </div>
+    <!-- Header Is Injected By Js Here -->
+    <header></header>
     <main>
-        <div class="hero-container">
-            <section class="hero-section" id="hero" >
+        <section class="hero-section" id="hero" >
+            <div class="container">
                 <!-- Main Banner -->
                 <div class="main-banner">
                     <!-- Right Side -->
@@ -36,10 +35,12 @@
                     </div>
                     <!-- Left Side -->
                     <div class="banner-card-layout">
-                        <span class="banner-price">$25</span>
-                        <span class="banner-sale">-80%</span>
-                        <div class="img-banner">
-                            <img src="assets/img/game01.jpeg" alt="best-game" id="banner-img">
+                        <div class="banner-card">
+                            <span class="banner-price">$25</span>
+                            <span class="banner-sale">-80%</span>
+                            <div class="img-banner">
+                                <img src="assets/img/game01.jpeg" alt="best-game" id="banner-img">
+                            </div>
                         </div>
                         <h3>Best Game of the Year</h3>
                         <!-- <button class="demo-btn game-btn">
@@ -75,22 +76,22 @@
                         <div class="icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
                     </div> -->
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
         <section class="online-games-section sub-section section-animate">
-            <div class="content-container">
+            <div class="container">
                 <h2 class="section-title">Online Games</h2>
                 <div class="inject-gamecards" id="inject-online"></div>
             </div>
         </section>
         <section class="most-played-section sub-section section-animate">
-            <div class="content-container">
+            <div class="container">
                 <h2 class="section-title">Most Played</h2>
                 <div class="inject-gamecards game-cards-grid" id="inject-most-played"></div>
             </div>
         </section>
         <section class="trending-games sub-section section-animate">
-            <div class="content-container">
+            <div class="container">
                 <h2 class="section-title">Trending Games</h2>
                 <div class="trending-games-cards">
                     <div class="card-3d">
@@ -121,7 +122,7 @@
             
         </section> -->
         <section class="features-section sub-section section-animate">
-            <div class="content-container">
+            <div class="container">
                 <div class="features-header">
                     <h2 class="section-title">Why Choose Our Shop?</h2>
                     <!-- <i class="fa-solid fa-money-bill-1"></i> -->
@@ -167,7 +168,100 @@
     </main>
     <!-- Footer with icons below copyright -->
     <footer class="site-footer">
-        <!-- Injected By Js -->
+        <div class="container">
+            <div class="footer-info">
+                <div class="footer-about col">
+                    <h5 class="title">About Us</h5>
+                    <p>
+                        Welcome to [Your Website Name], your ultimate destination for all things gaming! 
+                        We are passionate gamers and tech enthusiasts dedicated to bringing 
+                        you the best gaming PCs, consoles, accessories, and in-game items, 
+                        all at unbeatable prices. Beyond shopping, dive into
+                    </p>
+                </div>
+                <div class="col" id="footer-categories">
+                    <h5 class="title">Categories</h5>
+                    <ul>
+                        <li>
+                            <a href="#">Hot deals</a>
+                        </li>
+                        <li>
+                            <a href="#">Gaming PCs</a>
+                        </li>
+                        <li>
+                            <a href="#">Online Games</a>
+                        </li>
+                        <li>
+                            <a href="#">Trending Games</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col" id="footer-information">
+                    <h5 class="title">Information</h5>
+                    <ul>
+                        <li>
+                            <a href="#">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact Us</a> 
+                        </li>
+                        <li>
+                            <a href="#">Contact Support</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact Developers</a> 
+                        </li>
+                    </ul>
+                </div>
+                <div class="col" id="footer-service">
+                    <h5 class="title">Service</h5>
+                    <ul>
+                        <li>
+                            <a href="#">View Cart</a>
+                        </li>
+                        <li>
+                            <a href="#">Wishlist</a>
+                        </li>
+                        <li>
+                            <a href="#">Library</a>
+                        </li>
+                        <li>
+                            <a href="#">Product Details</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Social Links -->
+            <ul class="social-links">
+                <li class="social-item">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook-f social-icon"></i>
+                    </a>
+                </li>
+                <li class="social-item">
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-twitter social-icon"></i>
+                    </a>
+                </li>
+                <li class="social-item">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram social-icon"></i>
+                    </a>
+                </li>
+                <li class="social-item">
+                    <a href="/contact">
+                        <i class="fas fa-envelope social-icon"></i>
+                    </a>
+                </li>
+                <li class="social-item">
+                    <a href="https://github.com/AbobakrDiara61/Core-Dump" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github social-icon"></i>
+                    </a>
+                </li>
+            </ul>
+            <!-- Copyright Text -->
+            <p class="copyright"><i class="fa-solid fa-copyright"></i> 2025 Gaming Website. All rights reserved. | Built by gamers, for gamers - the ultimate showcase platform.</p>
+        </div>
     </footer>
     <section class="auth-container">
         <!-- Injected By Js -->
