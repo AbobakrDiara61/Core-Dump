@@ -11,7 +11,8 @@
         "downloads": 19000000,
         "releaseYear": 2020,
         "developer": "Ubisoft Montreal",
-        "imgPath": "assets/img/game01.jpeg"
+        "imgPath": "assets/img/game01.jpeg",
+        "platforms": ["PC", "PS4", "PS5", "Xbox One", "Xbox Series X/S"]
       },
       "brief": "Viking-themed installment in the Assassin's Creed series."
     },
@@ -26,9 +27,122 @@
         "downloads": 35000000,
         "releaseYear": 2022,
         "developer": "EA Sports",
-        "imgPath": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2ZVTn2_oEArvroUM3rxvueM0exQQA0CcTC17LLpSHvsK-cd6veiW-keRP6RDYclO3f9M&usqp=CAU"
+        "imgPath": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2ZVTn2_oEArvroUM3rxvueM0exQQA0CcTC17LLpSHvsK-cd6veiW-keRP6RDYclO3f9M&usqp=CAU",
+        "platforms": ["PC", "PS4", "PS5", "Xbox One", "Xbox Series X/S", "Switch"]
       },
       "brief": "Latest soccer simulation with updated teams and mechanics."
+    },
+    {
+      "gameName": "Assassin's Creed Mirage",
+      "details": {
+        "rate": 4.3,
+        "price": "$49.99",
+        "salePrice": "$34.99",
+        "sale": true,
+        "genre": ["Adventure", "Stealth", "Action"],
+        "downloads": 5000000,
+        "releaseYear": 2023,
+        "developer": "Ubisoft Bordeaux",
+        "imgPath": "assets/img/game05.jpg",
+        "platforms": ["PC", "PS4", "PS5", "Xbox One", "Xbox Series X/S"]
+      },
+      "brief": "Return to classic AC gameplay with a focus on stealth in 9th-century Baghdad."
+    },
+    {
+      "gameName": "Need For Speed",
+      "details": {
+        "rate": 4.7,
+        "price": "$59.99",
+        "salePrice": null,
+        "sale": false,
+        "genre": ["Racing", "Action", "Simulation"],
+        "downloads": 8000000,
+        "releaseYear": 2021,
+        "developer": "Criterion Games",
+        "imgPath": "assets/img/game04.jpg",
+        "platforms": ["PC", "PS4", "Xbox One"]
+      },
+      "brief": "High-octane street racing with customizable cars."
+    },
+    {
+      "gameName": "Call of Duty: Modern Warfare",
+      "details": {
+        "rate": 4.5,
+        "price": "$59.99",
+        "salePrice": "$44.99",
+        "sale": true,
+        "genre": ["Action", "Shooter", "Multiplayer"],
+        "downloads": 30000000,
+        "releaseYear": 2019,
+        "developer": "Infinity Ward",
+        "imgPath": "assets/img/game06.jpg",
+        "platforms": ["PC", "PS4", "Xbox One"]
+      },
+      "brief": "Reboot of the iconic Modern Warfare series with realistic combat."
+    },
+    {
+      "gameName": "Call of Duty: Black Ops Cold War",
+      "details": {
+        "rate": 4.2,
+        "price": "$59.99",
+        "salePrice": null,
+        "sale": false,
+        "genre": ["Action", "Shooter", "Multiplayer"],
+        "downloads": 25000000,
+        "releaseYear": 2020,
+        "developer": "Treyarch",
+        "imgPath": "assets/img/game08.jpg",
+        "platforms": ["PC", "PS4", "PS5", "Xbox One", "Xbox Series X/S"]
+      },
+      "brief": "Cold War-era shooter with campaign and multiplayer modes."
+    },
+    {
+      "gameName": "Battlefield 2042",
+      "details": {
+        "rate": 3.8,
+        "price": "$59.99",
+        "salePrice": "$29.99",
+        "sale": true,
+        "genre": ["Action", "Shooter", "Multiplayer"],
+        "downloads": 15000000,
+        "releaseYear": 2021,
+        "developer": "DICE",
+        "imgPath": "assets/img/game07.jpg",
+        "platforms": ["PC", "PS4", "PS5", "Xbox One", "Xbox Series X/S"]
+      },
+      "brief": "Futuristic large-scale warfare with 128-player battles."
+    },
+    {
+      "gameName": "Resident Evil Village",
+      "details": {
+        "rate": 4.7,
+        "price": "$59.99",
+        "salePrice": null,
+        "sale": false,
+        "genre": ["Adventure", "Horror", "Action"],
+        "downloads": 8000000,
+        "releaseYear": 2021,
+        "developer": "Capcom",
+        "imgPath": "assets/img/resident.jpg",
+        "platforms": ["PC", "PS4", "PS5", "Xbox One", "Xbox Series X/S"]
+      },
+      "brief": "First-person horror experience continuing Ethan Winters' story."
+    },
+    {
+      "gameName": "The Legend of Zelda: Breath of the Wild",
+      "details": {
+        "rate": 4.9,
+        "price": "$59.99",
+        "salePrice": null,
+        "sale": false,
+        "genre": ["Adventure", "Action", "Open World"],
+        "downloads": 25000000,
+        "releaseYear": 2017,
+        "developer": "Nintendo",
+        "imgPath": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbCzhtDsM5DanZ9vpg9D4jeWOuyZHZtfK16Q&s",
+        "platforms": ["Switch", "Wii U"]
+      },
+      "brief": "Open-world adventure with Link exploring the vast kingdom of Hyrule."
     }
   ],
   
@@ -36,10 +150,46 @@
     {
       "gameName": "Hangman",
       "details": {
+        "image": "assets/img/hangman.jpg",
         "price": "Free",
-        "imgPath": "assets/img/game01.jpeg"
+        "genre": ["Puzzle", "Intelligence"],
+        "rating": 2,
+        "onClick": "window.location.href = 'assets/games/hangman/index.html';"
       },
-      "brief": "Classic word guessing game where you save the stick figure from hanging."
+      "brief": "Test your memory with this fun and engaging memory game."
+    }, 
+    {
+      "gameName": "Guess Words",
+      "details": {
+        "image": "assets/img/guess_words.jpg",
+        "price": "Free",
+        "genre": ["Puzzle", "Intelligence"],
+        "rating": 5,
+        "onClick": "window.location.href = 'assets/games/guess_words/index.html';"
+      },
+      "brief": "Test your memory with this fun and engaging memory game."
+    }, 
+    {
+      "gameName": "Minus One",
+      "details": {
+        "image": "assets/img/rock-paper-scissors.jpg",
+        "price": "Free",
+        "genre": ["Fun", "Intelligence"],
+        "rating": 3.2,
+        "onClick": "window.location.href = 'assets/games/minus_one/index.html';"
+      },
+      "brief": "Test your memory with this fun and engaging memory game."
+    }, 
+    {
+      "gameName": "Memory Game",
+      "details": {
+        "image": "assets/img/memory-game.jpg",
+        "price": "Free",
+        "genre": ["Puzzle", "Memory", "Intelligence"],
+        "rating": 4.8,
+        "onClick": "window.location.href = 'assets/games/memory_game/index.html';"
+      },
+      "brief": "Test your memory with this fun and engaging memory game."
     }
   ],
   
@@ -67,6 +217,57 @@
         }
       },
       "brief": "Critically acclaimed fantasy action RPG with vast open world."
+    }
+  ],
+
+  "mostPlayedGames": [
+    {
+      "gameName": "Assassin's Creed Valhalla",
+      "details": {
+        "rate": 4.6,
+        "price": "$59.99",
+        "salePrice": "$39.99",
+        "sale": true,
+        "genre": ["Action", "RPG", "Open World"],
+        "downloads": 19000000,
+        "releaseYear": 2020,
+        "developer": "Ubisoft Montreal",
+        "imgPath": "assets/img/game01.jpeg",
+        "platforms": ["PC", "PS4", "PS5", "Xbox One", "Xbox Series X/S"]
+      },
+      "brief": "Viking-themed installment in the Assassin's Creed series."
+    },
+    {
+      "gameName": "Call of Duty: Modern Warfare",
+      "details": {
+        "rate": 4.5,
+        "price": "$59.99",
+        "salePrice": "$44.99",
+        "sale": true,
+        "genre": ["Action", "Shooter", "Multiplayer"],
+        "downloads": 30000000,
+        "releaseYear": 2019,
+        "developer": "Infinity Ward",
+        "imgPath": "assets/img/game06.jpg",
+        "platforms": ["PC", "PS4", "Xbox One"]
+      },
+      "brief": "Reboot of the iconic Modern Warfare series with realistic combat."
+    },
+    {
+      "gameName": "Need For Speed",
+      "details": {
+        "rate": 4.7,
+        "price": "$59.99",
+        "salePrice": null,
+        "sale": false,
+        "genre": ["Racing", "Action", "Simulation"],
+        "downloads": 8000000,
+        "releaseYear": 2021,
+        "developer": "Criterion Games",
+        "imgPath": "assets/img/game04.jpg",
+        "platforms": ["PC", "PS4", "Xbox One"]
+      },
+      "brief": "High-octane street racing with customizable cars."
     }
   ]
 }

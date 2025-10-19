@@ -1,4 +1,4 @@
-const API = "https://mocki.io/v1/46aedb81-856a-4519-b47b-9c288a18d2ad";
+const GAMES_DATA_PATH = "/data/games.json";
 let games = null;
 // Filter functionality
 const filterButtons = document.querySelectorAll('.controls span');
@@ -6,18 +6,22 @@ const filterButtons = document.querySelectorAll('.controls span');
 // Get the cards container
 const cardsContainer = document.querySelector('.shop-cards');
 
-async function renderGames(api) {
-    let response = await fetch(api);
-    let data = await response.json();
-    games = [...data];
-    data.forEach(game => {
-      const card = createGameCard(game);
-      cardsContainer.appendChild(card);
-    })
-    document.querySelectorAll(".cart-btn")
-    .forEach(btn => btn.addEventListener("click", (e) => addToCart(e)));
+async function renderGames() {
+    try {
+        let response = await fetch(GAMES_DATA_PATH);
+        let data = await response.json();
+        games = [...data.shopGames]; // Access the shopGames array from the JSON
+        data.shopGames.forEach(game => {
+            const card = createGameCard(game);
+            cardsContainer.appendChild(card);
+        });
+        document.querySelectorAll(".cart-btn")
+        .forEach(btn => btn.addEventListener("click", (e) => addToCart(e)));
+    } catch (error) {
+        console.error('Error fetching games data:', error);
+    }
 }
-renderGames(API);
+renderGames();
 
 function addToCart(e) {
   console.log(e);
@@ -70,7 +74,7 @@ filterButtons.forEach(btn => {
     
     const filter = e.target.dataset.filter;
     if(games === null) {
-      renderGames(API);
+      renderGames();
       return;
     }
 
@@ -80,7 +84,7 @@ filterButtons.forEach(btn => {
     }
     
     // Filter games by genre
-    filteredGames = games.filter(game => game.details.genre.some(genre => genre.toLowerCase().includes(filter)))
+    const filteredGames = games.filter(game => game.details.genre.some(genre => genre.toLowerCase().includes(filter)));
     displayGames(filteredGames);
   });
 });

@@ -75,6 +75,7 @@
         gap: var(--margin-sm);
         align-items: center;
         margin-top: 10px;
+        background-color: transparent;
         li {
             background-color: #333;
             color: #777;
