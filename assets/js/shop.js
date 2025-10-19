@@ -1,4 +1,4 @@
-const GAMES_DATA_PATH = "/data/games.json";
+const GAMES_DATA_PATH = "data/games.json";
 let games = null;
 // Filter functionality
 const filterButtons = document.querySelectorAll('.controls span');
